@@ -38,7 +38,7 @@ app.post('/menu', async (req, res)=>{
 app.get('/menu', async (req, res)=>{
   try{
     const menu = await MenuItem.find({});
-    console.log("Menu Successfully fetched", menu);
+    console.log("Menu Successfully fetched");
     return res.status(200).send(menu)
   }catch(err){
     console.log("error in fetching menu", err)
