@@ -2,7 +2,7 @@ const express = require('express');
 const { resolve } = require('path');
 const MenuItem = require('./menu.model');
 const dotenv = require('dotenv');
-const { connectDB } = require('./db');
+const connectDB = require('./db');
 
 const app = express();
 const port = 3010;
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/menu', async (req, res)=>{
-  const body = await req.body;
+  const body = req.body;
 
   if(!body.name || !body.price){
     return res.status(400).json({success: false, message: "Required Data not avaliable"});
